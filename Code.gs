@@ -15,7 +15,7 @@
 //     //     .setValue(e.user.getEmail() );
 // }
 
-//for expenditure query import
+
 function importQueryExp() {
     const filename = "CSVFile_Exp.csv"; // Please set the filename of CSV file on your Google Drive.
     const file = DriveApp.getFilesByName(filename);
@@ -27,10 +27,9 @@ function importQueryExp() {
     const sheet = SpreadsheetApp.getActiveSheet();
     sheet.getRange(3, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
     sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
-    sheet.getRange('O1').setValue(new Date());
+    sheet.getRange('P1').setValue(new Date());
   }
 
-//for labor query import
   function importQueryLabor() {
     const filename = "CSVFile_Labor.csv"; // Set the filename of CSV file on your Google Drive.
     const file = DriveApp.getFilesByName(filename);
@@ -55,7 +54,6 @@ function importQueryExp() {
     sheet.getRange(2, 10).setValue(valuesP[1]);
   }
 
-//for payrate query import
   function importQueryPay() {
     const filename = "CSVFile_Payrate.csv"; // Set the filename of CSV file on your Google Drive.
     const file = DriveApp.getFilesByName(filename);
