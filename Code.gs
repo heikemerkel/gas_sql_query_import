@@ -1,13 +1,13 @@
 // function onEdit(e) {
 //     // Prevent errors if no object is passed.
 //     if (!e) return;
-//     // Get the active sheet.
+//     // Get the active ss.
 //     e.source.getActiveSheet()
 //         // Set the cell you want to update with the date.
 //         .getRange('O1')
 //         // Update the date.
 //         .setValue(new Date());
-//     // Get the active sheet.
+//     // Get the active ss.
 //     // e.source.getActiveSheet()
 //     //     // Set the cell you want to update with the user.
 //     //     .getRange('O2')
@@ -24,7 +24,8 @@ function importQueryExp() {
     }
     const csv = file.next().getBlob().getDataAsString();
     const values = Utilities.parseCsv(csv, ",");
-    const sheet = SpreadsheetApp.getActiveSheet();
+    const ssE = SpreadssApp.getActiveSheet();
+    var sheet = ssE.getSheetByName('Import');
     sheet.getRange(3, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
     sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
     sheet.getRange('P1').setValue(new Date());
@@ -38,7 +39,8 @@ function importQueryExp() {
     }
     const csv = file.next().getBlob().getDataAsString();
     const values = Utilities.parseCsv(csv, ",");
-    const sheet = SpreadsheetApp.getActiveSheet();
+    const ssL = SpreadssApp.getActiveSheet();
+    var sheet = ssL.getSheetByName('Import');
     sheet.getRange(3, 1, sheet.getLastRow(), 7).clearContent();
     sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
     sheet.getRange('J1').setValue(new Date());
@@ -51,7 +53,7 @@ function importQueryExp() {
     const csvP= fileP.next().getBlob().getDataAsString();
     //console.log("csvP:", csvP);
     const valuesP = Utilities.parseCsv(csvP, ",");
-    sheet.getRange(2, 10).setValue(valuesP[1]);
+    ss.getRange(2, 10).setValue(valuesP[1]);
   }
 
   function importQueryPay() {
@@ -62,8 +64,8 @@ function importQueryExp() {
     }
     const csv = file.next().getBlob().getDataAsString();
     const values = Utilities.parseCsv(csv, ",");
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheetByName('TOAD Query Results');
+    const ssP = SpreadssApp.getActiveSpreadsheet();
+    var sheet = ss.getssByName('TOAD Query Results');
     sheet.getRange(2, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
     sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
     sheet.getRange('I1').setValue(new Date());
