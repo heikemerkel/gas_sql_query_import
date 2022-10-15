@@ -65,7 +65,7 @@ function importQueryExp() {
     const csv = file.next().getBlob().getDataAsString();
     const values = Utilities.parseCsv(csv, ",");
     const ssP = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ssP.getssByName('TOAD Query Results');
+    var sheet = ssP.getSheetByName('TOAD Query Results');
     sheet.getRange(2, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
     sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
     sheet.getRange('I1').setValue(new Date());
