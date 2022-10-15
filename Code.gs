@@ -24,7 +24,7 @@ function importQueryExp() {
     }
     const csv = file.next().getBlob().getDataAsString();
     const values = Utilities.parseCsv(csv, ",");
-    const ssE = SpreadssApp.getActiveSheet();
+    const ssE = SpreadsheetApp.getActiveSpreadsheet();
     var sheet = ssE.getSheetByName('Import');
     sheet.getRange(3, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
     sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
@@ -39,7 +39,7 @@ function importQueryExp() {
     }
     const csv = file.next().getBlob().getDataAsString();
     const values = Utilities.parseCsv(csv, ",");
-    const ssL = SpreadssApp.getActiveSheet();
+    const ssL = SpreadsheetApp.getActiveSpreadsheet();
     var sheet = ssL.getSheetByName('Import');
     sheet.getRange(3, 1, sheet.getLastRow(), 7).clearContent();
     sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
@@ -64,7 +64,7 @@ function importQueryExp() {
     }
     const csv = file.next().getBlob().getDataAsString();
     const values = Utilities.parseCsv(csv, ",");
-    const ssP = SpreadssApp.getActiveSpreadsheet();
+    const ssP = SpreadsheetApp.getActiveSpreadsheet();
     var sheet = ss.getssByName('TOAD Query Results');
     sheet.getRange(2, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
     sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
