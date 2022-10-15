@@ -43,7 +43,7 @@ function importQueryExp() {
     var sheet = ssL.getSheetByName('Import');
     sheet.getRange(3, 1, sheet.getLastRow(), 7).clearContent();
     sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
-    sheet.getRange('J1').setValue(new Date());
+    sheet.getRange('J1').setValue(new Date()); 
 
     const filenameP = "CSVFile_Payno.csv"; // to update the last payroll posted in Banner
     const fileP = DriveApp.getFilesByName(filenameP);
@@ -53,7 +53,7 @@ function importQueryExp() {
     const csvP= fileP.next().getBlob().getDataAsString();
     //console.log("csvP:", csvP);
     const valuesP = Utilities.parseCsv(csvP, ",");
-    ss.getRange(2, 10).setValue(valuesP[1]);
+    ss.getRange('J2').setValue(valuesP[1]); //set R value
   }
 
   function importQueryPay() {
@@ -65,7 +65,7 @@ function importQueryExp() {
     const csv = file.next().getBlob().getDataAsString();
     const values = Utilities.parseCsv(csv, ",");
     const ssP = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getssByName('TOAD Query Results');
+    var sheet = ssP.getssByName('TOAD Query Results');
     sheet.getRange(2, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
     sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
     sheet.getRange('I1').setValue(new Date());
