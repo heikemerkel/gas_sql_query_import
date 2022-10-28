@@ -17,7 +17,7 @@
 
 
 function importQueryExp() {
-    const filename = "CSVFile_Exp.csv"; // Please set the filename of CSV file on your Google Drive.
+    const filename = "TEST_CSVFile_ExpendITDwBudget.csv"; // Please set the filename of CSV file on your Google Drive.
     const file = DriveApp.getFilesByName(filename);
     if (!file.hasNext()) {
       throw new Error(`"${filename}" was not found.`);
@@ -31,20 +31,20 @@ function importQueryExp() {
     sheet.getRange('P1').setValue(new Date());
   }
 
-  function importQuery182245() {
-    const filename = "CSVFile_182245.csv"; // Please set the filename of CSV file on your Google Drive.
-    const file = DriveApp.getFilesByName(filename);
-    if (!file.hasNext()) {
-      throw new Error(`"${filename}" was not found.`);
-    }
-    const csv = file.next().getBlob().getDataAsString();
-    const values = Utilities.parseCsv(csv, ",");
-    const ssE = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ssE.getSheetByName('182245');
-    sheet.getRange(3, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
-    sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
-    sheet.getRange('P1').setValue(new Date());
-  }
+  // function importQuery182245() {
+  //   const filename = "CSVFile_182245.csv"; // Please set the filename of CSV file on your Google Drive.
+  //   const file = DriveApp.getFilesByName(filename);
+  //   if (!file.hasNext()) {
+  //     throw new Error(`"${filename}" was not found.`);
+  //   }
+  //   const csv = file.next().getBlob().getDataAsString();
+  //   const values = Utilities.parseCsv(csv, ",");
+  //   const ssE = SpreadsheetApp.getActiveSpreadsheet();
+  //   var sheet = ssE.getSheetByName('182245');
+  //   sheet.getRange(3, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
+  //   sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
+  //   sheet.getRange('P1').setValue(new Date());
+  // }
 
   function importQueryLabor() {
     const filename = "CSVFile_Labor.csv"; // Set the filename of CSV file on your Google Drive.
@@ -60,7 +60,7 @@ function importQueryExp() {
     sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
     sheet.getRange('J1').setValue(new Date()); 
 
-    const filenameP = "CSVFile_Payno.csv"; // to update the last payroll posted in Banner
+    const filenameP = "CSVFile_PayNo.csv"; // to update the last payroll posted in Banner
     const fileP = DriveApp.getFilesByName(filenameP);
     if (!fileP.hasNext()) {
       throw new Error(`"${filenameP}" was not found.`);
