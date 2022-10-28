@@ -1,21 +1,3 @@
-// function onEdit(e) {
-//     // Prevent errors if no object is passed.
-//     if (!e) return;
-//     // Get the active ss.
-//     e.source.getActiveSheet()
-//         // Set the cell you want to update with the date.
-//         .getRange('O1')
-//         // Update the date.
-//         .setValue(new Date());
-//     // Get the active ss.
-//     // e.source.getActiveSheet()
-//     //     // Set the cell you want to update with the user.
-//     //     .getRange('O2')
-//     //     // Update the user (only email is available, and only if security settings allow).
-//     //     .setValue(e.user.getEmail() );
-// }
-
-
 function importQueryExp() {
     const filename = "CSVFile_ExpendITDwBudget.csv"; // Please set the filename of CSV file on your Google Drive.
     const file = DriveApp.getFilesByName(filename);
@@ -30,21 +12,6 @@ function importQueryExp() {
     sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
     sheet.getRange('P1').setValue(new Date());
   }
-
-  // function importQuery182245() {
-  //   const filename = "CSVFile_182245.csv"; // Please set the filename of CSV file on your Google Drive.
-  //   const file = DriveApp.getFilesByName(filename);
-  //   if (!file.hasNext()) {
-  //     throw new Error(`"${filename}" was not found.`);
-  //   }
-  //   const csv = file.next().getBlob().getDataAsString();
-  //   const values = Utilities.parseCsv(csv, ",");
-  //   const ssE = SpreadsheetApp.getActiveSpreadsheet();
-  //   var sheet = ssE.getSheetByName('182245');
-  //   sheet.getRange(3, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
-  //   sheet.getRange(2, 1, values.length, values[0].length).setValues(values);
-  //   sheet.getRange('P1').setValue(new Date());
-  // }
 
   function importQueryLabor() {
     const filename = "CSVFile_Labor.csv"; // Set the filename of CSV file on your Google Drive.
@@ -85,3 +52,20 @@ function importQueryExp() {
     sheet.getRange(1, 1, values.length, values[0].length).setValues(values);
     sheet.getRange('I1').setValue(new Date());
   }
+
+  // function onEdit(e) {
+//     // Prevent errors if no object is passed.
+//     if (!e) return;
+//     // Get the active ss.
+//     e.source.getActiveSheet()
+//         // Set the cell you want to update with the date.
+//         .getRange('O1')
+//         // Update the date.
+//         .setValue(new Date());
+//     // Get the active ss.
+//     // e.source.getActiveSheet()
+//     //     // Set the cell you want to update with the user.
+//     //     .getRange('O2')
+//     //     // Update the user (only email is available, and only if security settings allow).
+//     //     .setValue(e.user.getEmail() );
+// }
