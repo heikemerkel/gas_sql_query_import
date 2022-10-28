@@ -17,7 +17,7 @@
 
 
 function importQueryExp() {
-    const filename = "TEST_CSVFile_ExpendITDwBudget.csv"; // Please set the filename of CSV file on your Google Drive.
+    const filename = "CSVFile_ExpendITDwBudget.csv"; // Please set the filename of CSV file on your Google Drive.
     const file = DriveApp.getFilesByName(filename);
     if (!file.hasNext()) {
       throw new Error(`"${filename}" was not found.`);
