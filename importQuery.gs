@@ -35,7 +35,7 @@ function importQueryExp() {
     const csvP= fileP.next().getBlob().getDataAsString();
     //console.log("csvP:", csvP);
     const valuesP = Utilities.parseCsv(csvP, ",");
-    ss.getRange('J2').setValue(valuesP[1]); //set R value
+    ssL.getRange('J2').setValue(valuesP[1]); //set R value
   }
 
   function importQueryPay() {
