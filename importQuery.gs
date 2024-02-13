@@ -36,6 +36,29 @@ function importQueryExpF1() {
     sheet.getRange('J1').setValue(dateC); //set date from created csv file info
   }
 
+function importQueryICRF1() {
+    const filename = "CSVFile_ICR_F1.csv"; // Please set the filename of CSV file on your Google Drive.
+    const file = DriveApp.getFilesByName(filename);
+    if (!file.hasNext()) {
+      throw new Error(`"${filename}" was not found.`);
+    }
+    const fileNext = file.next();
+    const csv = fileNext.getBlob().getDataAsString();
+    const values = Utilities.parseCsv(csv, ",");
+    const ssE = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ssE.getSheetByName('ICR');
+    sheet.getRange(3, 1, sheet.getLastRow(), sheet.getLastColumn()).clearContent();
+    sheet.getRange(3, 1, values.length, values[0].length).setValues(values);
+
+    //var dateC = fileNext.getDateCreated();
+    var dateC = fileNext.getLastUpdated();
+    // Logger.log(dateC);
+    // var name = fileNext.getName()
+    // Logger.log(name);
+
+    sheet.getRange('J1').setValue(dateC); //set date from created csv file info
+  }
+
   function importQueryLabor() {
     const filename = "CSVFile_Labor.csv"; // Set the filename of CSV file on your Google Drive.
     const file = DriveApp.getFilesByName(filename);
